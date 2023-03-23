@@ -11,10 +11,12 @@ import { Server } from 'socket.io';
 import { createClient } from 'redis';
 import { createAdapter } from '@socket.io/redis-adapter';
 import Logger from 'bunyan';
-import { config } from './config';
-import { RedisFlushModes } from 'redis';
-import applicationRoute from './routes';
-import { IErrorResponse, CustomError } from './shared/globals/helpers/error-handler';
+import { config } from '@root/config';
+// import { RedisFlushModes } from 'redis';
+import applicationRoute from '@root/routes';
+import { CustomError, IErrorResponse } from '@root/features/shared/globals/helpers/error-handler';
+// import { IErrorResponse, CustomError } from './shared/globals/helpers/error-handler';
+
 
 // was not working at 5000, error something running on that port, 3000 works //
 // too much crap running on 5000 - look up how to kill ALL //
@@ -117,6 +119,8 @@ export class ChattyServer {
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  private socketIOconnections(io: Server): void {}
+
+  private socketIOconnections(io: Server): void {
+    log.info('socketIOConnections');
+  }
 }

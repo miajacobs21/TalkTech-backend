@@ -18,7 +18,19 @@
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "pretty": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "plugins": [
+      {"transform": "typscript-transform-paths"},
+      {"transform": "typscript-transform-paths", "afterDeclarations": true},
+    ],
+    "paths": {
+      "@global/*": ["src/features/shared/globals/*"],
+      "@service/*": ["src/features/shared/services/*"],
+      "@socket/*": ["src/features/shared/sockets/*"],
+      "@worker/*": ["src/features/shared/workers/*"],
+      // This one should be last //
+      "@root/*": ["src/*"]
+    }
   }
 }
 
