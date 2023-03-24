@@ -3,7 +3,7 @@
     "target": "es2015",
     "module": "commonjs",
     "lib": ["DOM", "ES2015"],
-    "baseUrl": ".",
+    "baseUrl": "./",
     "outDir": "./build",
     "rootDir": "src",
     "strict": true,
@@ -20,17 +20,19 @@
     "pretty": true,
     "resolveJsonModule": true,
     "plugins": [
-      {"transform": "typscript-transform-paths"},
-      {"transform": "typscript-transform-paths", "afterDeclarations": true},
+      { "transform": "typescript-transform-paths" },
+      { "transform": "typescript-transform-paths", "afterDeclarations": true }
     ],
     "paths": {
-      "@global/*": ["src/features/shared/globals/*"],
-      "@service/*": ["src/features/shared/services/*"],
-      "@socket/*": ["src/features/shared/sockets/*"],
-      "@worker/*": ["src/features/shared/workers/*"],
+      "@global/*": ["src/shared/globals/*"],
+      "@service/*": ["src/shared/services/*"],
+      "@socket/*": ["src/shared/sockets/*"],
+      "@worker/*": ["src/shared/workers/*"],
+      "@utils/*": ["utils/*"],
       // This one should be last //
       "@root/*": ["src/*"]
     }
   }
 }
+
 

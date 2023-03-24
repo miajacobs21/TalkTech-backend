@@ -14,7 +14,7 @@ import Logger from 'bunyan';
 import { config } from '@root/config';
 // import { RedisFlushModes } from 'redis';
 import applicationRoute from '@root/routes';
-import { CustomError, IErrorResponse } from '@root/features/shared/globals/helpers/error-handler';
+import { CustomError, IErrorResponse } from '@root/shared/globals/helpers/error-handler';
 // import { IErrorResponse, CustomError } from './shared/globals/helpers/error-handler';
 
 
