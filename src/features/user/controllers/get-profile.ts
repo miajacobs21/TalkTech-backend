@@ -6,7 +6,7 @@ import { UserCache } from '@service/redis/user.cache';
 import { IAllUsers, IUserDocument } from '@user/interfaces/user.interface';
 import { userService } from '@service/db/user.service';
 import { IFollowerData } from '@follower/interfaces/follower.interface';
-import { followerService } from '@service/db/follower.service';
+import { followerService } from '@service/db/follower.services';
 import mongoose from 'mongoose';
 import { Helpers } from '@global/helpers/helpers';
 import { IPostDocument } from '@post/interfaces/post.interface';

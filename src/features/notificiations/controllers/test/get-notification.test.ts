@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
 import { authUserPayload } from '@root/mocks/auth.mock';
 import { notificationData, notificationMockRequest, notificationMockResponse } from '@root/mocks/notification.mock';
-import { Get } from '@notification/controllers/get-notifications';
-import { notificationService } from '@service/db/notification.service';
+import { Get } from '../get-notifications';
+import { notificationService } from '@service/db/notificiation.service';
+
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

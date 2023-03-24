@@ -3,8 +3,9 @@ import { Request, Response } from 'express';
 import { authUserPayload } from '@root/mocks/auth.mock';
 import { commentNames, commentsData, reactionMockRequest, reactionMockResponse } from '@root/mocks/reactions.mock';
 import { CommentCache } from '@service/redis/comment.cache';
-import { Get } from '@comment/controllers/get-comments';
-import { commentService } from '@service/db/comment.service';
+import { Get } from '../get-comment';
+import { commentService } from '@service/db/comment.services';
+
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

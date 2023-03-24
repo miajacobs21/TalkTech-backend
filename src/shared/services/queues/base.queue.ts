@@ -1,16 +1,17 @@
+
 import Queue, { Job } from 'bull';
 import Logger from 'bunyan';
 import { ExpressAdapter, createBullBoard, BullAdapter } from '@bull-board/express';
 import { config } from '@root/config';
-import { IAuthJob } from '@auth/interfaces/auth.interface';
-import { IEmailJob, IUserJob } from '@user/interfaces/user.interface';
-import { IPostJobData } from '@post/interfaces/post.interface';
-import { IReactionJob } from '@reaction/interfaces/reaction.interface';
-import { ICommentJob } from '@comment/interfaces/comment.interface';
-import { IBlockedUserJobData, IFollowerJobData } from '@follower/interfaces/follower.interface';
-import { INotificationJobData } from '@notification/interfaces/notification.interface';
-import { IFileImageJobData } from '@image/interfaces/image.interface';
-import { IChatJobData, IMessageData } from '@chat/interfaces/chat.interface';
+import { IAuthJob } from '@root/features/auth/interfaces/auth.interface';
+import { IEmailJob, IUserJob } from '@root/features/user/interfaces/user.interface';
+import { IPostJobData } from '@root/features/post/interfaces/post.interface';
+import { IReactionJob } from '@root/features/reactions/interfaces/reaction.interface';
+import { ICommentJob } from '@root/features/comments/interfaces/comment.interface';
+import { IBlockedUserJobData, IFollowerJobData } from '@root/features/followers/interfaces/follower.interface';
+import { INotificationJobData } from '@root/features/notificiations/interfaces/notification.interface';
+import { IFileImageJobData } from '@root/features/images/interfaces/image.interface';
+import { IChatJobData, IMessageData } from '@root/features/chat/interfaces/chat.interface';
 
 type IBaseJobData =
   | IAuthJob

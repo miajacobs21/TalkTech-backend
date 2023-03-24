@@ -3,8 +3,10 @@ import { authUserPayload } from '@root/mocks/auth.mock';
 import { reactionMockRequest, reactionMockResponse } from '@root/mocks/reactions.mock';
 import { CommentCache } from '@service/redis/comment.cache';
 import { commentQueue } from '@service/queues/comment.queue';
-import { Add } from '@comment/controllers/add-comment';
+
+
 import { existingUser } from '@root/mocks/user.mock';
+import { Add } from '@chat/controllers/add-chat-message';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

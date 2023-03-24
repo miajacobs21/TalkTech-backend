@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import HTTP_STATUS from 'http-status-codes';
 import { ICommentDocument, ICommentNameList } from '@comment/interfaces/comment.interface';
 import { CommentCache } from '@service/redis/comment.cache';
-import { commentService } from '@service/db/comment.service';
+import { commentService } from '@service/db/comment.services';
 import mongoose from 'mongoose';
 
 const commentCache: CommentCache = new CommentCache();

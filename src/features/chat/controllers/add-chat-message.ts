@@ -11,8 +11,8 @@ import { uploads } from '@global/helpers/cloudinary-upload';
 import { BadRequestError } from '@global/helpers/error-handler';
 import { IMessageData, IMessageNotification } from '@chat/interfaces/chat.interface';
 import { socketIOChatObject } from '@socket/chat';
-import { INotificationTemplate } from '@notification/interfaces/notification.interface';
-import { notificationTemplate } from '@service/emails/templates/notifications/notification-template';
+import { INotificationTemplate } from '@root/features/notificiations/interfaces/notification.interface';
+import { notificationTemplate } from '@service/emails/templates/notificiations/notification-template';
 import { emailQueue } from '@service/queues/email.queue';
 import { MessageCache } from '@service/redis/message.cache';
 import { chatQueue } from '@service/queues/chat.queue';
@@ -21,6 +21,9 @@ const userCache: UserCache = new UserCache();
 const messageCache: MessageCache = new MessageCache();
 
 export class Add {
+  comment(req: Request<import('express-serve-static-core').ParamsDictionary, any, any, import('qs').ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>) {
+    throw new Error('Method not implemented.');
+  }
   @joiValidation(addChatSchema)
   public async message(req: Request, res: Response): Promise<void> {
     const {

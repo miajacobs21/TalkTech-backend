@@ -5,7 +5,7 @@ import * as imageServer from '@socket/image';
 import { fileDocumentMock, imagesMockRequest, imagesMockResponse } from '@root/mocks/image.mock';
 import { imageQueue } from '@service/queues/image.queue';
 import { Delete } from '@image/controllers/delete-image';
-import { imageService } from '@service/db/image.service';
+import { imageService } from '@service/db/images.services';
 import { UserCache } from '@service/redis/user.cache';
 
 jest.useFakeTimers();

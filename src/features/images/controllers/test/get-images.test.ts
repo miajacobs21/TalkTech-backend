@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { authUserPayload } from '@root/mocks/auth.mock';
 import { fileDocumentMock, imagesMockRequest, imagesMockResponse } from '@root/mocks/image.mock';
 import { Get } from '@image/controllers/get-images';
-import { imageService } from '@service/db/image.service';
+import { imageService } from '@service/db/images.services';
 
 jest.useFakeTimers();
 

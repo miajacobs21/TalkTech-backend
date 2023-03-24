@@ -52,4 +52,4 @@ const postWithVideoSchema: ObjectSchema = Joi.object().keys({
 });
 
 export { postSchema, postWithImageSchema, postWithVideoSchema };
-s
+

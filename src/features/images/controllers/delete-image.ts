@@ -5,7 +5,7 @@ import { IUserDocument } from '@user/interfaces/user.interface';
 import { socketIOImageObject } from '@socket/image';
 import { imageQueue } from '@service/queues/image.queue';
 import { IFileImageDocument } from '@image/interfaces/image.interface';
-import { imageService } from '@service/db/image.service';
+import { imageService } from '@service/db/images.services';
 
 const userCache: UserCache = new UserCache();
 

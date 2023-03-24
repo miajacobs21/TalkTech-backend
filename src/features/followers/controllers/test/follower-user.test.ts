@@ -5,7 +5,7 @@ import * as followerServer from '@socket/follower';
 import { followersMockRequest, followersMockResponse } from '@root/mocks/followers.mock';
 import { existingUser } from '@root/mocks/user.mock';
 import { followerQueue } from '@service/queues/follower.queue';
-import { Add } from '@follower/controllers/follower-user';
+import { Add } from '../follow-user';
 import { UserCache } from '@service/redis/user.cache';
 import { FollowerCache } from '@service/redis/follower.cache';
 

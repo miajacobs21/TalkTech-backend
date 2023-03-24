@@ -8,7 +8,7 @@ import { Get } from '@user/controllers/get-profile';
 import { PostCache } from '@service/redis/post.cache';
 import { postMockData } from '@root/mocks/post.mock';
 import { mockFollowerData } from '@root/mocks/followers.mock';
-import { followerService } from '@service/db/follower.service';
+import { followerService } from '@service/db/follower.services';
 import { userService } from '@service/db/user.service';
 import { postService } from '@service/db/post.service';
 import { Helpers } from '@global/helpers/helpers';

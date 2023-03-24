@@ -9,7 +9,7 @@ import { authUserPayload } from '@root/mocks/auth.mock';
 import { MessageCache } from '@service/redis/message.cache';
 import { emailQueue } from '@service/queues/email.queue';
 import { existingUser, existingUserTwo } from '@root/mocks/user.mock';
-import { notificationTemplate } from '@service/emails/templates/notifications/notification-template';
+import { notificationTemplate } from '@service/emails/templates/notificiations/notification-template';
 import { UserCache } from '@service/redis/user.cache';
 
 jest.useFakeTimers();
