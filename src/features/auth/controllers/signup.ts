@@ -11,10 +11,10 @@ import HTTP_STATUS from 'http-status-codes';
 import { IUserDocument } from '@user/interfaces/user.interface';
 import { UserCache } from '@service/redis/user.cache';
 import JWT from 'jsonwebtoken';
-import { authQueue } from '@service/queues/auth.queue';
 import { userQueue } from '@service/queues/user.queue';
 import { config } from '@root/config';
 import { BadRequestError } from '@global/helpers/error-handler';
+import { authQueue } from '@service/queues/auth.queue';
 
 const userCache: UserCache = new UserCache();
 
@@ -46,9 +46,13 @@ export class SignUp {
       throw new BadRequestError('File upload: Error occurred. Try again.');
     }
 
+
+
     // Add to redis cache
     const userDataForCache: IUserDocument = SignUp.prototype.userData(authData, userObjectId);
-    userDataForCache.profilePicture = `https://res.cloudinary.com/dyamr9ym3/image/upload/v${result.version}/${userObjectId}`;
+    // replaced - `https://res/cloudinary.com/${config.CLOUD_NAME}/image/upload/v${result.version}/${userObjectId}` //
+    // used cloud name from .env file //
+    userDataForCache.profilePicture = `https://res/cloudinary.com/dua8cfrqm/image/upload/v${result.version}/${userObjectId}`;
     await userCache.saveUserToCache(`${userObjectId}`, uId, userDataForCache);
 
     // Add to database
@@ -57,7 +61,8 @@ export class SignUp {
 
     const userJwt: string = SignUp.prototype.signToken(authData, userObjectId);
     req.session = { jwt: userJwt };
-    res.status(HTTP_STATUS.CREATED).json({ message: 'User created successfully', user: userDataForCache, token: userJwt });
+    // this line changed <user: userDataForCache, token: userJwt> to <authData> //
+    res.status(HTTP_STATUS.CREATED).json({ message: 'User created successfully', authData });
   }
 
   private signToken(data: IAuthDocument, userObjectId: ObjectId): string {
