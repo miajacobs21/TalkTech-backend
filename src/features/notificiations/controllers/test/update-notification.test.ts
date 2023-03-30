@@ -7,7 +7,6 @@ import { notificationQueue } from '@service/queues/notification.queue';
 import { Update } from '../update-notifications';
 import { socketIONotificationObject } from '@socket/notifications';
 
-
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');
 

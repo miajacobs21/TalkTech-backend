@@ -43,7 +43,7 @@ export class UserCache extends BaseCache {
       '_id',
       `${_id}`,
       'uId',
-       `${uId}`,
+      `${uId}`,
       'username',
       `${username}`,
       'email',
@@ -53,9 +53,9 @@ export class UserCache extends BaseCache {
       'createdAt',
       `${createdAt}`,
       'postsCount',
-      `${postsCount}`,
+      `${postsCount}`
     ];
-    const secondList: string[] =[
+    const secondList: string[] = [
       'blocked',
       JSON.stringify(blocked),
       'blockedBy',
@@ -110,17 +110,16 @@ export class UserCache extends BaseCache {
     //   'bgImageId': `${bgImageId}`
     // };
 
-
     // this is how we will retrieve the users //
     try {
       if (!this.client.isOpen) {
         await this.client.connect();
       }
       await this.client.ZADD('user', { score: parseInt(userUId, 10), value: `${key}` });
-      for (const [itemKey, itemValue] of Object.entries(dataToSave)) {
-        // replaced `${itemKey}`, `${itemValue}` with dataToSave //
-        await this.client.HSET(`users:${key}`, dataToSave);
-      }
+      // for (const [itemKey, itemValue] of Object.entries(dataToSave)) {
+      // replaced `${itemKey}`, `${itemValue}` with dataToSave //
+      await this.client.HSET(`users:${key}`, dataToSave);
+      // }
     } catch (error) {
       log.error(error);
       throw new ServerError('Server error. Try again.');
@@ -142,13 +141,13 @@ export class UserCache extends BaseCache {
       response.social = Helpers.parseJson(`${response.social}`);
       response.followersCount = Helpers.parseJson(`${response.followersCount}`);
       response.followingCount = Helpers.parseJson(`${response.followingCount}`);
-      response.bgImageId = Helpers.parseJson(`${response.bgImageId}`);
-      response.bgImageVersion = Helpers.parseJson(`${response.bgImageVersion}`);
-      response.profilePicture = Helpers.parseJson(`${response.profilePicture}`);
-      response.work = Helpers.parseJson(`${response.work}`);
-      response.school = Helpers.parseJson(`${response.school}`);
-      response.location = Helpers.parseJson(`${response.location}`);
-      response.quote = Helpers.parseJson(`${response.quote}`);
+      // response.bgImageId = Helpers.parseJson(`${response.bgImageId}`);
+      // response.bgImageVersion = Helpers.parseJson(`${response.bgImageVersion}`);
+      // response.profilePicture = Helpers.parseJson(`${response.profilePicture}`);
+      // response.work = Helpers.parseJson(`${response.work}`);
+      // response.school = Helpers.parseJson(`${response.school}`);
+      // response.location = Helpers.parseJson(`${response.location}`);
+      // response.quote = Helpers.parseJson(`${response.quote}`);
 
       return response;
     } catch (error) {

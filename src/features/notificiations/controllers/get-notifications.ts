@@ -1,4 +1,3 @@
-
 import { INotificationDocument } from '../interfaces/notification.interface';
 import { notificationService } from '@service/db/notificiation.service';
 import { Request, Response } from 'express';
@@ -10,4 +9,3 @@ export class Get {
     res.status(HTTP_STATUS.OK).json({ message: 'User notifications', notifications });
   }
 }
-

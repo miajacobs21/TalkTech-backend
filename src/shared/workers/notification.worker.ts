@@ -3,7 +3,6 @@ import Logger from 'bunyan';
 import { config } from '@root/config';
 import { notificationService } from '@service/db/notificiation.service';
 
-
 const log: Logger = config.createLogger('notificationWorker');
 
 class NotificationWorker {

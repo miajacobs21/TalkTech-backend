@@ -3,7 +3,7 @@ import { config } from '@root/config';
 import JWT from 'jsonwebtoken';
 import { joiValidation } from '@global/decorators/joi-validation.decorators';
 import HTTP_STATUS from 'http-status-codes';
-import { authService } from '@service/db/auth.services';
+import { authService } from '@service/db/auth.service';
 import { loginSchema } from '@auth/schemes/signin';
 import { IAuthDocument } from '@auth/interfaces/auth.interface';
 import { BadRequestError } from '@global/helpers/error-handler';
@@ -35,15 +35,15 @@ export class SignIn {
       config.JWT_TOKEN!
     );
     req.session = { jwt: userJwt };
-    const userDocument: IUserDocument = {
-      ...user,
-      authId: existingUser!._id,
-      username: existingUser!.username,
-      email: existingUser!.email,
-      avatarColor: existingUser!.avatarColor,
-      uId: existingUser!.uId,
-      createdAt: existingUser!.createdAt
-    } as IUserDocument;
-    res.status(HTTP_STATUS.OK).json({ message: 'User login successfully', user: userDocument, token: userJwt });
+    // const userDocument: IUserDocument = {
+    //   ...user,
+    //   authId: existingUser!._id,
+    //   username: existingUser!.username,
+    //   email: existingUser!.email,
+    //   avatarColor: existingUser!.avatarColor,
+    //   uId: existingUser!.uId,
+    //   createdAt: existingUser!.createdAt
+    // } as IUserDocument;
+    res.status(HTTP_STATUS.OK).json({ message: 'User login successfully', user: existingUser, token: userJwt });
   }
 }

@@ -1,4 +1,3 @@
-
 import { INotificationDocument } from '@root/features/notificiations/interfaces/notification.interface';
 import { NotificationModel } from '@root/features/notificiations/models/notification.schema';
 import mongoose from 'mongoose';

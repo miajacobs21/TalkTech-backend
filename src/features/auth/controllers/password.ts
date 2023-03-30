@@ -3,7 +3,7 @@ import { config } from '@root/config';
 import moment from 'moment';
 import publicIP from 'ip';
 import HTTP_STATUS from 'http-status-codes';
-import { authService } from '@service/db/auth.services';
+import { authService } from '@service/db/auth.service';
 import { IAuthDocument } from '@auth/interfaces/auth.interface';
 import { joiValidation } from '@global/decorators/joi-validation.decorators';
 import { emailSchema, passwordSchema } from '@auth/schemes/password';

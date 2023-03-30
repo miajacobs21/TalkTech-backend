@@ -6,7 +6,7 @@ import { CustomError } from '@global/helpers/error-handler';
 import { existingUser } from '@root/mocks/user.mock';
 import { emailQueue } from '@service/queues/email.queue';
 import { userService } from '@service/db/user.service';
-import { authService } from '@service/db/auth.services';
+import { authService } from '@service/db/auth.service';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');

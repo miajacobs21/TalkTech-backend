@@ -4,7 +4,6 @@ import { Update } from '../controllers/update-notifications';
 import { Delete } from '../controllers/delete-notification';
 import { Get } from '../controllers/get-notifications';
 
-
 class NotificationRoutes {
   private router: Router;
 

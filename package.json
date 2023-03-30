@@ -18,7 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@bull-board/express": "^4.12.1",
+    "@bull-board/express": "^4.12.2",
+    "@bull-board/ui": "^5.0.0",
     "@faker-js/faker": "^7.6.0",
     "@jest/types": "^29.4.3",
     "@sendgrid/mail": "^7.7.0",
