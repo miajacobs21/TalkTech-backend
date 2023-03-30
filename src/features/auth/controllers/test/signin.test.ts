@@ -4,7 +4,7 @@ import { Request, Response } from 'express';
 import { CustomError } from '@global/helpers/error-handler';
 import { SignIn } from '@auth/controllers/signin';
 import { Helpers } from '@global/helpers/helpers';
-import { authService } from '@service/db/auth.services';
+import { authService } from '@service/db/auth.service';
 import { userService } from '@service/db/user.service';
 import { mergedAuthAndUserData } from '@root/mocks/user.mock';
 

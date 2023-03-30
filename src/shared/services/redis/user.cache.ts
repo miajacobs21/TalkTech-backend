@@ -39,37 +39,87 @@ export class UserCache extends BaseCache {
       bgImageVersion,
       social
     } = createdUser;
-    const dataToSave = {
-      '_id': `${_id}`,
-      'uId': `${uId}`,
-      'username': `${username}`,
-      'email': `${email}`,
-      'avatarColor': `${avatarColor}`,
-      'createdAt': `${createdAt}`,
-      'postsCount': `${postsCount}`,
-      'blocked': JSON.stringify(blocked),
-      'blockedBy': JSON.stringify(blockedBy),
-      'profilePicture': `${profilePicture}`,
-      'followersCount': `${followersCount}`,
-      'followingCount': `${followingCount}`,
-      'notifications': JSON.stringify(notifications),
-      'social': JSON.stringify(social),
-      'work': `${work}`,
-      'location': `${location}`,
-      'school': `${school}`,
-      'quote': `${quote}`,
-      'bgImageVersion': `${bgImageVersion}`,
-      'bgImageId': `${bgImageId}`
-    };
+    const firstList: string[] = [
+      '_id',
+      `${_id}`,
+      'uId',
+      `${uId}`,
+      'username',
+      `${username}`,
+      'email',
+      `${email}`,
+      'avatarColor',
+      `${avatarColor}`,
+      'createdAt',
+      `${createdAt}`,
+      'postsCount',
+      `${postsCount}`
+    ];
+    const secondList: string[] = [
+      'blocked',
+      JSON.stringify(blocked),
+      'blockedBy',
+      JSON.stringify(blockedBy),
+      'profilePicture',
+      `${profilePicture}`,
+      'followersCount',
+      `${followersCount}`,
+      'followingCount',
+      `${followingCount}`,
+      'notifications',
+      JSON.stringify(notifications),
+      'social',
+      JSON.stringify(social)
+    ];
+    const thirdList: string[] = [
+      'work',
+      `${work}`,
+      'location',
+      `${location}`,
+      'school',
+      `${school}`,
+      'quote',
+      `${quote}`,
+      'bgImageVersion',
+      `${bgImageVersion}`,
+      'bgImageId',
+      `${bgImageId}`
+    ];
+    const dataToSave: string[] = [...firstList, ...secondList, ...thirdList];
 
+    // const dataToSave = {
+    //   '_id':`${_id}`,
+    //   'uId': `${uId}`,
+    //   'username': `${username}`,
+    //   'email': `${email}`,
+    //   'avatarColor': `${avatarColor}`,
+    //   'createdAt': `${createdAt}`,
+    //   'postsCount': `${postsCount}`,
+    //   'blocked': JSON.stringify(blocked),
+    //   'blockedBy': JSON.stringify(blockedBy),
+    //   'profilePicture': `${profilePicture}`,
+    //   'followersCount': `${followersCount}`,
+    //   'followingCount': `${followingCount}`,
+    //   'notifications': JSON.stringify(notifications),
+    //   'social': JSON.stringify(social),
+    //   'work': `${work}`,
+    //   'location': `${location}`,
+    //   'school': `${school}`,
+    //   'quote': `${quote}`,
+    //   'bgImageVersion': `${bgImageVersion}`,
+    //   'bgImageId': `${bgImageId}`
+    // };
+
+    // this is how we will retrieve the users //
     try {
       if (!this.client.isOpen) {
         await this.client.connect();
       }
       await this.client.ZADD('user', { score: parseInt(userUId, 10), value: `${key}` });
-      for (const [itemKey, itemValue] of Object.entries(dataToSave)) {
-        await this.client.HSET(`users:${key}`, `${itemKey}`, `${itemValue}`);
-      }
+      // for (const [itemKey, itemValue] of Object.entries(dataToSave)) {
+      // replaced `${itemKey}`, `${itemValue}` with dataToSave //
+      await this.client.HSET(`users:${key}`, dataToSave);
+      // }
     } catch (error) {
       log.error(error);
       throw new ServerError('Server error. Try again.');
@@ -91,13 +141,13 @@ export class UserCache extends BaseCache {
       response.social = Helpers.parseJson(`${response.social}`);
       response.followersCount = Helpers.parseJson(`${response.followersCount}`);
       response.followingCount = Helpers.parseJson(`${response.followingCount}`);
-      response.bgImageId = Helpers.parseJson(`${response.bgImageId}`);
-      response.bgImageVersion = Helpers.parseJson(`${response.bgImageVersion}`);
-      response.profilePicture = Helpers.parseJson(`${response.profilePicture}`);
-      response.work = Helpers.parseJson(`${response.work}`);
-      response.school = Helpers.parseJson(`${response.school}`);
-      response.location = Helpers.parseJson(`${response.location}`);
-      response.quote = Helpers.parseJson(`${response.quote}`);
+      // response.bgImageId = Helpers.parseJson(`${response.bgImageId}`);
+      // response.bgImageVersion = Helpers.parseJson(`${response.bgImageVersion}`);
+      // response.profilePicture = Helpers.parseJson(`${response.profilePicture}`);
+      // response.work = Helpers.parseJson(`${response.work}`);
+      // response.school = Helpers.parseJson(`${response.school}`);
+      // response.location = Helpers.parseJson(`${response.location}`);
+      // response.quote = Helpers.parseJson(`${response.quote}`);
 
       return response;
     } catch (error) {

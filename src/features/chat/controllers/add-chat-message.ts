@@ -21,9 +21,6 @@ const userCache: UserCache = new UserCache();
 const messageCache: MessageCache = new MessageCache();
 
 export class Add {
-  comment(req: Request<import('express-serve-static-core').ParamsDictionary, any, any, import('qs').ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>) {
-    throw new Error('Method not implemented.');
-  }
   @joiValidation(addChatSchema)
   public async message(req: Request, res: Response): Promise<void> {
     const {
@@ -48,7 +45,7 @@ export class Add {
       if (!result?.public_id) {
         throw new BadRequestError(result.message);
       }
-      fileUrl = `https://res.cloudinary.com/dyamr9ym3/image/upload/v${result.version}/${result.public_id}`;
+      fileUrl = `https://res.cloudinary.com/dua8cfrqm/image/upload/v${result.version}/${result.public_id}`;
     }
 
     const messageData: IMessageData = {

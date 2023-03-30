@@ -4,7 +4,6 @@ import { notificationData, notificationMockRequest, notificationMockResponse } f
 import { Get } from '../get-notifications';
 import { notificationService } from '@service/db/notificiation.service';
 
-
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');
 jest.mock('@service/db/notification.service');

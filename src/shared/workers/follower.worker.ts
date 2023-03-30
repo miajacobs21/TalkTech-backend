@@ -3,7 +3,6 @@ import Logger from 'bunyan';
 import { config } from '@root/config';
 import { followerService } from '@service/db/follower.services';
 
-
 const log: Logger = config.createLogger('followerWorker');
 
 class FollowerWorker {

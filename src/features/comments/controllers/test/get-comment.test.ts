@@ -6,7 +6,6 @@ import { CommentCache } from '@service/redis/comment.cache';
 import { Get } from '../get-comment';
 import { commentService } from '@service/db/comment.services';
 
-
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');
 jest.mock('@service/redis/comment.cache');

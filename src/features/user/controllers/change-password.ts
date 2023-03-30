@@ -7,7 +7,7 @@ import { IResetPasswordParams } from '@user/interfaces/user.interface';
 import { joiValidation } from '@global/decorators/joi-validation.decorators';
 import { changePasswordSchema } from '@user/schemes/info';
 import { BadRequestError } from '@global/helpers/error-handler';
-import { authService } from '@service/db/auth.services';
+import { authService } from '@service/db/auth.service';
 import { IAuthDocument } from '@auth/interfaces/auth.interface';
 import { resetPasswordTemplate } from '@service/emails/templates/reset-password/reset-password-template';
 import { emailQueue } from '@service/queues/email.queue';

@@ -3,7 +3,6 @@ import Logger from 'bunyan';
 import { config } from '@root/config';
 import { commentService } from '@service/db/comment.services';
 
-
 const log: Logger = config.createLogger('commentWorker');
 
 class CommentWorker {

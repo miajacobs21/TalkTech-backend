@@ -15,7 +15,6 @@ import { emailQueue } from '@root/shared/services/queues/email.queue';
 import { IReactionJob } from '@root/features/reactions/interfaces/reaction.interface';
 import { IReactionDocument } from '@root/features/reactions/interfaces/reaction.interface';
 
-
 const userCache: UserCache = new UserCache();
 
 class ReactionService {
