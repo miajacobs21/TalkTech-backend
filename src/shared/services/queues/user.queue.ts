@@ -1,6 +1,6 @@
-import { BaseQueue } from '@root/shared/services/queues/base.queue';
+import { BaseQueue } from '@service/queues/base.queue';
 // import { IUserJob } from '@user/interfaces/user.interface';
-import { userWorker } from '@root/shared/workers/user.worker';
+import { userWorker } from '@worker/user.worker';
 
 class UserQueue extends BaseQueue {
   constructor() {

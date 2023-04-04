@@ -39,23 +39,23 @@ Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
-# ###
-# POST {{baseUrl}}/{{urlPath}}/forgot-password
-# Content-Type: application/json
-# Accept: application/json
-# withCredentials: true
+###
+POST {{baseUrl}}/{{urlPath}}/forgot-password
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
 
-# {
-#   "email": "admin@gmail.com"
-# }
+{
+  "email": "manny@test.com"
+}
 
-# ###
-# POST {{baseUrl}}/{{urlPath}}/reset-password/908eb5a9d2320f61786228daa941e40aad4ce46f
-# Content-Type: application/json
-# Accept: application/json
-# withCredentials: true
+###
+POST {{baseUrl}}/{{urlPath}}/reset-password/
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
 
-# {
-#   "password": "123456",
-#   "confirmPassword": "123456"
-# }
+{
+  "password": "qwerty1",
+  "confirmPassword": "qwerty1"
+}

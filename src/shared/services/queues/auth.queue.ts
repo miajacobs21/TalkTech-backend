@@ -3,6 +3,7 @@ import { BaseQueue } from '@service/queues/base.queue';
 import { authWorker } from '@root/shared/workers/auth.worker';
 
 class AuthQueue extends BaseQueue {
+  authQueue: any;
   constructor() {
     super('auth');
     this.processJob('addAuthUserToDB', 5, authWorker.addAuthUserToDB);

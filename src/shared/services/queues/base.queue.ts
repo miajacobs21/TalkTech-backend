@@ -4,9 +4,9 @@ import { ExpressAdapter } from '@bull-board/express';
 import { createBullBoard } from '@bull-board/api';
 import { BullAdapter } from '@bull-board/api/bullAdapter';
 import { config } from '@root/config';
+import { IAuthJob } from '@auth/interfaces/auth.interface';
+import { IEmailJob, IUserJob } from '@user/interfaces/user.interface';
 
-import { IAuthJob } from '@root/features/auth/interfaces/auth.interface';
-import { IEmailJob, IUserJob } from '@root/features/user/interfaces/user.interface';
 import { IPostJobData } from '@root/features/post/interfaces/post.interface';
 import { IReactionJob } from '@root/features/reactions/interfaces/reaction.interface';
 import { ICommentJob } from '@root/features/comments/interfaces/comment.interface';
