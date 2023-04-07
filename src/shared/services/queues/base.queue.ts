@@ -6,9 +6,9 @@ import { BullAdapter } from '@bull-board/api/bullAdapter';
 import { config } from '@root/config';
 import { IAuthJob } from '@auth/interfaces/auth.interface';
 import { IEmailJob, IUserJob } from '@user/interfaces/user.interface';
+import { IPostJobData } from '@post/interfaces/post.interface';
+import { IReactionJob } from '@reaction/interfaces/reaction.interface';
 
-import { IPostJobData } from '@root/features/post/interfaces/post.interface';
-import { IReactionJob } from '@root/features/reactions/interfaces/reaction.interface';
 import { ICommentJob } from '@root/features/comments/interfaces/comment.interface';
 import { IBlockedUserJobData, IFollowerJobData } from '@root/features/followers/interfaces/follower.interface';
 import { INotificationJobData } from '@root/features/notificiations/interfaces/notification.interface';
