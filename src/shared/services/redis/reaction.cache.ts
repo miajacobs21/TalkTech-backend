@@ -1,10 +1,10 @@
-import { BaseCache } from '@root/shared/services/redis/base.cache';
+import { BaseCache } from '@service/redis/base.cache';
 import Logger from 'bunyan';
 import { find } from 'lodash';
 import { config } from '@root/config';
-import { ServerError } from '@root/shared/globals/helpers/error-handler';
+import { ServerError } from '@global/helpers/error-handler';
 import { IReactionDocument, IReactions } from '@reaction/interfaces/reaction.interface';
-import { Helpers } from '@root/shared/globals/helpers/helpers';
+import { Helpers } from '@global/helpers/helpers';
 
 const log: Logger = config.createLogger('reactionsCache');
 

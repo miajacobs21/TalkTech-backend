@@ -12,7 +12,7 @@ import { NotificationModel } from '@root/features/notificiations/models/notifica
 import { socketIONotificationObject } from '@socket/notifications';
 import { notificationTemplate } from '@service/emails/templates/notificiations/notification-template';
 import { emailQueue } from '@root/shared/services/queues/email.queue';
-import { IReactionJob } from '@root/features/reactions/interfaces/reaction.interface';
+import { IReactionJob } from '@reaction/interfaces/reaction.interface';
 import { IReactionDocument } from '@root/features/reactions/interfaces/reaction.interface';
 
 const userCache: UserCache = new UserCache();
@@ -88,7 +88,10 @@ class ReactionService {
   }
 
   public async getPostReactions(query: IQueryReaction, sort: Record<string, 1 | -1>): Promise<[IReactionDocument[], number]> {
-    const reactions: IReactionDocument[] = await ReactionModel.aggregate([{ $match: query }, { $sort: sort }]);
+    const reactions: IReactionDocument[] = await ReactionModel.aggregate([
+      { $match: query },
+      { $sort: sort }
+    ]);
     return [reactions, reactions.length];
   }
 

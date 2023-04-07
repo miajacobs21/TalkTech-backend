@@ -1,10 +1,10 @@
-import { BaseCache } from '@root/shared/services/redis/base.cache';
+import { BaseCache } from '@service/redis/base.cache';
 import { INotificationSettings, ISocialLinks, IUserDocument } from '@user/interfaces/user.interface';
 import Logger from 'bunyan';
 import { indexOf, findIndex } from 'lodash';
 import { config } from '@root/config';
-import { ServerError } from '@root/shared/globals/helpers/error-handler';
-import { Helpers } from '@root/shared/globals/helpers/helpers';
+import { ServerError } from '@global/helpers/error-handler';
+import { Helpers } from '@global/helpers/helpers';
 import { RedisCommandRawReply } from '@redis/client/dist/lib/commands';
 
 const log: Logger = config.createLogger('userCache');
