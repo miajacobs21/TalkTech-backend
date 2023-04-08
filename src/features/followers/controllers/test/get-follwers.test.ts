@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import { authUserPayload } from '@root/mocks/auth.mock';
 import { followersMockRequest, followersMockResponse, mockFollowerData } from '@root/mocks/followers.mock';
 import { FollowerCache } from '@service/redis/follower.cache';
-import { Get } from '../get-follwers';
+import { Get } from '../get-followers';
 import { followerService } from '@service/db/follower.services';
 import { existingUserTwo } from '@root/mocks/user.mock';
 

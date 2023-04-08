@@ -15,8 +15,6 @@ import { authQueue } from '@service/queues/auth.queue';
 import { userQueue } from '@service/queues/user.queue';
 import { config } from '@root/config';
 import { BadRequestError } from '@global/helpers/error-handler';
-// import { omit } from 'lodash';
-
 
 const userCache: UserCache = new UserCache();
 
@@ -54,7 +52,7 @@ export class SignUp {
     await userCache.saveUserToCache(`${userObjectId}`, uId, userDataForCache);
 
     // Add to database
-    authQueue.authQueue.addAuthUserJob('addAuthUserToDB', { value: authData });
+    authQueue.addAuthUserJob('addAuthUserToDB', { value: authData });
     userQueue.addUserJob('addUserToDB', { value: userDataForCache });
 
     const userJwt: string = SignUp.prototype.signToken(authData, userObjectId);

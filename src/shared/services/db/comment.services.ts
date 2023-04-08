@@ -3,13 +3,13 @@ import { CommentsModel } from '@comment/models/comment.schema';
 import { IPostDocument } from '@post/interfaces/post.interface';
 import { PostModel } from '@post/models/post.schema';
 import mongoose, { Query } from 'mongoose';
-import { UserCache } from '@root/shared/services/redis/user.cache';
+import { UserCache } from '@service/redis/user.cache';
 import { IUserDocument } from '@user/interfaces/user.interface';
-import { NotificationModel } from '@root/features/notificiations/models/notification.schema';
-import { INotificationDocument, INotificationTemplate } from '@root/features/notificiations/interfaces/notification.interface';
-import { socketIONotificationObject } from '@socket/notifications';
-import { notificationTemplate } from '@service/emails/templates/notificiations/notification-template';
-import { emailQueue } from '@root/shared/services/queues/email.queue';
+import { NotificationModel } from '@notification/models/notification.schema';
+import { INotificationDocument, INotificationTemplate } from '@notification/interfaces/notification.interface';
+import { socketIONotificationObject } from '@socket/notification';
+import { notificationTemplate } from '@service/emails/templates/notifications/notification-template';
+import { emailQueue } from '@service/queues/email.queue';
 
 const userCache: UserCache = new UserCache();
 

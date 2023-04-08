@@ -1,4 +1,4 @@
-import { INotificationJobData } from '@root/features/notificiations/interfaces/notification.interface';
+import { INotificationJobData } from '@notification/interfaces/notification.interface';
 import { BaseQueue } from '@root/shared/services/queues/base.queue';
 import { notificationWorker } from '@root/shared/workers/notification.worker';
 
