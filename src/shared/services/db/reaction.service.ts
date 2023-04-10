@@ -1,19 +1,17 @@
-import { Helpers } from '@root/shared/globals/helpers/helpers';
-import { IPostDocument } from '@root/features/post/interfaces/post.interface';
-import { PostModel } from '@root/features/post/models/post.schema';
-import { IQueryReaction } from '@root/features/reactions/interfaces/reaction.interface';
-import { ReactionModel } from '@root/features/reactions/models/reaction.schema';
-import { UserCache } from '@root/shared/services/redis/user.cache';
-import { IUserDocument } from '@root/features/user/interfaces/user.interface';
+import { Helpers } from '@global/helpers/helpers';
+import { IPostDocument } from '@post/interfaces/post.interface';
+import { PostModel } from '@post/models/post.schema';
+import { IQueryReaction, IReactionDocument, IReactionJob } from '@reaction/interfaces/reaction.interface';
+import { ReactionModel } from '@reaction/models/reaction.schema';
+import { UserCache } from '@service/redis/user.cache';
+import { IUserDocument } from '@user/interfaces/user.interface';
 import { omit } from 'lodash';
 import mongoose from 'mongoose';
-import { INotificationDocument, INotificationTemplate } from '@root/features/notificiations/interfaces/notification.interface';
-import { NotificationModel } from '@root/features/notificiations/models/notification.schema';
-import { socketIONotificationObject } from '@socket/notifications';
-import { notificationTemplate } from '@service/emails/templates/notificiations/notification-template';
-import { emailQueue } from '@root/shared/services/queues/email.queue';
-import { IReactionJob } from '@reaction/interfaces/reaction.interface';
-import { IReactionDocument } from '@root/features/reactions/interfaces/reaction.interface';
+import { INotificationDocument, INotificationTemplate } from '@notification/interfaces/notification.interface';
+import { NotificationModel } from '@notification/models/notification.schema';
+import { socketIONotificationObject } from '@socket/notification';
+import { notificationTemplate } from '@service/emails/templates/notifications/notification-template';
+import { emailQueue } from '@service/queues/email.queue';
 
 const userCache: UserCache = new UserCache();
 
@@ -88,10 +86,7 @@ class ReactionService {
   }
 
   public async getPostReactions(query: IQueryReaction, sort: Record<string, 1 | -1>): Promise<[IReactionDocument[], number]> {
-    const reactions: IReactionDocument[] = await ReactionModel.aggregate([
-      { $match: query },
-      { $sort: sort }
-    ]);
+    const reactions: IReactionDocument[] = await ReactionModel.aggregate([{ $match: query }, { $sort: sort }]);
     return [reactions, reactions.length];
   }
 

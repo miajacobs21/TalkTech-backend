@@ -1,6 +1,6 @@
 import { ICommentJob } from '@comment/interfaces/comment.interface';
-import { BaseQueue } from '@root/shared/services/queues/base.queue';
-import { commentWorker } from '@root/shared/workers/comment.worker';
+import { BaseQueue } from '@service/queues/base.queue';
+import { commentWorker } from '@worker/comment.worker';
 
 class CommentQueue extends BaseQueue {
   constructor() {

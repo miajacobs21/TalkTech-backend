@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import { authUserPayload } from '@root/mocks/auth.mock';
 import { commentNames, commentsData, reactionMockRequest, reactionMockResponse } from '@root/mocks/reactions.mock';
 import { CommentCache } from '@service/redis/comment.cache';
-import { Get } from '../get-comment';
+import { Get } from '@comment/controllers/get-comments';
 import { commentService } from '@service/db/comment.services';
 
 jest.useFakeTimers();

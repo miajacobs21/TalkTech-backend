@@ -5,12 +5,12 @@ import { authUserPayload } from '@root/mocks/auth.mock';
 import { notificationMockRequest, notificationMockResponse } from '@root/mocks/notification.mock';
 import { notificationQueue } from '@service/queues/notification.queue';
 import { Update } from '../update-notifications';
-import { socketIONotificationObject } from '@socket/notifications';
+import { socketIONotificationObject } from '@socket/notification';
 
 jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');
 
-// changed notificaitonServer to notificationQueue //
+// changed notificatonServer to notificationQueue //
 Object.defineProperties(notificationQueue, {
   socketIONotificationObject: {
     value: new Server(),
