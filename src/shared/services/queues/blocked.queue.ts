@@ -1,6 +1,6 @@
 import { IBlockedUserJobData } from '@follower/interfaces/follower.interface';
-import { BaseQueue } from '@root/shared/services/queues/base.queue';
-import { blockedUserWorker } from '@root/shared/workers/blocked.worker';
+import { BaseQueue } from '@service/queues/base.queue';
+import { blockedUserWorker } from '@worker/blocked.worker';
 
 class BlockedUserQueue extends BaseQueue {
   constructor() {
