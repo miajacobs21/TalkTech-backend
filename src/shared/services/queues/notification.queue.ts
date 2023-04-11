@@ -1,6 +1,6 @@
 import { INotificationJobData } from '@notification/interfaces/notification.interface';
-import { BaseQueue } from '@root/shared/services/queues/base.queue';
-import { notificationWorker } from '@root/shared/workers/notification.worker';
+import { BaseQueue } from '@service/queues/base.queue';
+import { notificationWorker } from '@worker/notification.worker';
 
 class NotificationQueue extends BaseQueue {
   // socketIONotificationObject(socketIONotificationObject: any, arg1: string) {

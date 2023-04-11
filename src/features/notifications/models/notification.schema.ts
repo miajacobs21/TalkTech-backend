@@ -1,4 +1,4 @@
-import { INotificationDocument, INotification } from '../interfaces/notification.interface';
+import { INotificationDocument, INotification } from '@notification/interfaces/notification.interface';
 import { notificationService } from '@service/db/notification.service';
 import mongoose, { model, Model, Schema } from 'mongoose';
 
