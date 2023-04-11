@@ -4,7 +4,7 @@ import { authUserPayload } from '@root/mocks/auth.mock';
 
 import { notificationMockRequest, notificationMockResponse } from '@root/mocks/notification.mock';
 import { notificationQueue } from '@service/queues/notification.queue';
-import { Update } from '../update-notifications';
+import { Update } from '../update-notification';
 import { socketIONotificationObject } from '@socket/notification';
 
 jest.useFakeTimers();

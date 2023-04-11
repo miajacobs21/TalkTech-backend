@@ -2,7 +2,7 @@ import { IBasicInfo, ISearchUser, IUserDocument, ISocialLinks, INotificationSett
 import { UserModel } from '@user/models/user.schema';
 import mongoose from 'mongoose';
 import { indexOf } from 'lodash';
-import { followerService } from './follower.services';
+import { followerService } from './follower.service';
 import { AuthModel } from '@auth/models/auth.schema';
 
 class UserService {

@@ -4,7 +4,7 @@ import HTTP_STATUS from 'http-status-codes';
 import mongoose from 'mongoose';
 import { FollowerCache } from '@service/redis/follower.cache';
 import { IFollowerData } from '@follower/interfaces/follower.interface';
-import { followerService } from '@service/db/follower.services';
+import { followerService } from '@service/db/follower.service';
 
 const followerCache: FollowerCache = new FollowerCache();
 
