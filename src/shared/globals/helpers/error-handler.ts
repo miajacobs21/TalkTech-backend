@@ -2,9 +2,9 @@ import HTTP_STATUS from 'http-status-codes';
 
 export interface IErrorResponse {
   message: string;
-  statusCOde: number;
+  statusCode: number;
   status: string;
-  serializeErrors(): IErrorResponse;
+  serializeErrors(): IError;
 }
 
 export interface IError {
@@ -29,8 +29,6 @@ export abstract class CustomError extends Error {
     };
   }
 }
-
-// Define errors here - as many as I want //
 
 export class JoiRequestValidationError extends CustomError {
   statusCode = HTTP_STATUS.BAD_REQUEST;
