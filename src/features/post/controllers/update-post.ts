@@ -47,10 +47,6 @@ export class Update {
       if (!result.public_id) {
         throw new BadRequestError(result.message);
       }
-
-
-
-
     }
     res.status(HTTP_STATUS.OK).json({ message: 'Post with image updated successfully' });
   }
