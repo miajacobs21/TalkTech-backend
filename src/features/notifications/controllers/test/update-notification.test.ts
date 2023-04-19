@@ -31,6 +31,10 @@ describe('Update', () => {
   it('should send correct json response', async () => {
     const req: Request = notificationMockRequest({}, authUserPayload, { notificationId: '12345' }) as Request;
     const res: Response = notificationMockResponse();
+    // added this following line after build failed 4.19.23
+    const socketIONotificationObject = {
+      emit: jest.fn(),
+    };
     jest.spyOn(socketIONotificationObject, 'emit');
     jest.spyOn(notificationQueue, 'addNotificationJob');
 
