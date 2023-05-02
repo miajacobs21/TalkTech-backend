@@ -11,7 +11,7 @@ sudo yum update -y
 sudo yum install ruby -y
 sudo yum install wget -y
 cd /home/ec2-user
-wget https://aws-codedeploy-eu-central-1.s3.eu-central-1.amazonaws.com/latest/install
+wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
 sudo chmod +x ./install
 sudo ./install auto
 
@@ -28,7 +28,7 @@ fi
 if [ $(program_is_installed docker) == 0 ]; then
   sudo amazon-linux-extras install docker -y
   sudo systemctl start docker
-  sudo docker run --name chatapp-redis -p 6379:6379 --restart always --detach redis
+  sudo docker run --name talktechapp-redis -p 6379:6379 --restart always --detach redis
 fi
 
 if [ $(program_is_installed pm2) == 0 ]; then

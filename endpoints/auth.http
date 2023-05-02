@@ -20,11 +20,11 @@ Accept: application/json
 withCredentials: true
 
 {
-  "username": "",
-  "password": "",
-  "email": "",
-  "avatarColor": "",
-  "avatarImage": "<add-a-base64-encoded-string>"
+  "username": "mjacobs4",
+  "password": "qwerty",
+  "email": "mjacobs4@live.maryville.edu",
+  "avatarColor": "blue",
+ "avatarImage": "<add-a-base64-encoded-string>"
 }
 
 ###
