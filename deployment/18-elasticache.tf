@@ -3,7 +3,7 @@ resource "aws_elasticache_subnet_group" "elasticache_subnet_group" {
   subnet_ids = [aws_subnet.private_subnet_a.id, aws_subnet.private_subnet_b.id]
 }
 
-resource "aws_elasticache_replication_group" "chatapp_redis_cluster" {
+resource "aws_elasticache_replication_group" "talktechapp_redis_cluster" {
   automatic_failover_enabled    = true
   replication_group_id          = "${local.prefix}-redis"
   node_type                     = var.elasticache_node_type
