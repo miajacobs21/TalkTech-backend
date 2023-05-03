@@ -28,7 +28,7 @@ export interface IFollowerData {
   postCount: number;
   username: string;
   uId: string;
-  _id?: mongoose.Types.ObjectId;
+  _id: mongoose.Types.ObjectId | string;
   userProfile?: IUserDocument;
 }
 
