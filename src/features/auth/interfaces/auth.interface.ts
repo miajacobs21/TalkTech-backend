@@ -1,12 +1,10 @@
 import { Document } from 'mongoose';
 import { ObjectId } from 'mongodb';
-// take this one out? below. //
 import { IUserDocument } from '@user/interfaces/user.interface';
 
 declare global {
   namespace Express {
     interface Request {
-      // set up as optional - if user is not properly logged in //
       currentUser?: AuthPayload;
     }
   }
