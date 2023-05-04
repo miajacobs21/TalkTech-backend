@@ -49,8 +49,7 @@ export class ChattyServer {
         keys: [config.SECRET_KEY_ONE!, config.SECRET_KEY_TWO!],
         maxAge: 24 * 7 * 3600000,
         secure: config.NODE_ENV !== 'development',
-        // comment this line when running the server locally
-        sameSite: 'none'
+        sameSite: 'none' // comment this line when running the server locally
       })
     );
     app.use(hpp());
