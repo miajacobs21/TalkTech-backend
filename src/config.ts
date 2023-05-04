@@ -21,9 +21,7 @@ class Config {
   public SENDGRID_SENDER: string | undefined;
   public EC2_URL: string | undefined;
 
-
   private readonly DEFAULT_DATABASE_URL = 'mongodb://127.0.0.1:27017/TalkTech-backend';
-
 
   constructor() {
     this.DATABASE_URL = process.env.DATABASE_URL || this.DEFAULT_DATABASE_URL;
