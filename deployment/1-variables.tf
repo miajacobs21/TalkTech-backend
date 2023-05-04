@@ -13,7 +13,7 @@ variable "vpc_cidr_block" {
 variable "vpc_availability_zones" {
   description = "VPC Availability Zones"
   type        = list(string)
-  default     = ["us-east-1a", "us-east-1b"] # Two availability zones for your specific region | in AWS CLI $ aws ec2 describe-availability-zones --region us-east-1
+  default     = ["us-east-1a", "us-east-1b"] # Two availability zones for my specific region | in AWS CLI $ aws ec2 describe-availability-zones --region us-east-1
 }
 
 variable "vpc_public_subnets" {
@@ -37,7 +37,7 @@ variable "global_destination_cidr_block" {
 variable "bastion_host_cidr" {
   description = "CIDR Block for Bastion Host Ingress"
   type        = string
-  default     = "2601:98a:100:44b0::126d/32" # Your <IP address>/32
+  default     = "192.168.0.36/32" # my <IP address>/32
 }
 
 variable "https_ssl_policy" {
@@ -49,7 +49,7 @@ variable "https_ssl_policy" {
 variable "main_api_server_domain" {
   description = "Main API Server Domain"
   type        = string
-  default     = "talktechserver.com" # Your backend domain you created a route53 zone for
+  default     = "talktechserver.com" # backend domain I created a route53 zone for
 }
 
 variable "dev_api_server_domain" {
@@ -85,7 +85,7 @@ variable "elasticache_node_type" {
 variable "elasticache_parameter_group_name" {
   description = "Elasticache Parameter Group Name"
   type        = string
-  default     = "default.redis6.x"
+  default     = "default.redis7"
 }
 
 variable "ec2_instance_type" {
