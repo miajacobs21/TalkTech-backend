@@ -23,7 +23,7 @@ resource "aws_autoscaling_group" "ec2_autoscaling_group" {
   }
 
   depends_on = [
-    aws_elasticache_replication_group.chatapp_redis_cluster
+    aws_elasticache_replication_group.talktechapp_redis_cluster
   ]
 
   tag {

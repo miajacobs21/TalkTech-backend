@@ -28,7 +28,7 @@ fi
 if [ $(program_is_installed docker) == 0 ]; then
   sudo amazon-linux-extras install docker -y
   sudo systemctl start docker
-  sudo docker run --name chatapp-redis -p 6379:6379 --restart always --detach redis
+  sudo docker run --name talktechapp-redis -p 6379:6379 --restart always --detach redis
 fi
 
 if [ $(program_is_installed pm2) == 0 ]; then
@@ -37,11 +37,11 @@ fi
 
 cd /home/ec2-user
 
-git clone -b staging https://github.com/miajacobs21/TalkTech-backend.git # replace this github url with your url of your own project
+git clone -b main https://github.com/miajacobs21/TalkTech-backend.git # replace this github url with your url of your own project
 cd TalkTech-backend # set your project name
 npm install
-aws s3 sync s3://talktech-env-files/backend/staging . # update with your s3 bucket
+aws s3 sync s3://talktech-env-files/backend/production . # update with your s3 bucket
 unzip env-file.zip
-cp .env.staging .env
+cp .env.production .env
 npm run build
 npm run start
