@@ -20,6 +20,6 @@ sed -i -e "s|\(^REDIS_HOST=\).*|REDIS_HOST=redis://$ELASTICACHE_ENDPOINT:6379|g"
 rm -rf env-file.zip
 cp .env .env.develop
 zip env-file.zip .env.develop
-aws --region us-east-1 s3 cp env-file.zip s3://talktech-env-files//backend/develop/ #  my s3 bucket
+aws --region us-east-1 s3 cp env-file.zip s3://talktech-env-files/backend/develop/ #  my s3 bucket
 rm -rf .env*
 rm -rf env-file.zip
