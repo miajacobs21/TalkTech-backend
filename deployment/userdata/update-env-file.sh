@@ -3,16 +3,19 @@
 #!/bin/bash
 
 # function program_is_installed {
-#   local return_=1
+#!/bin/bash
 
-#   type $1 >/dev/null 2>&1 || { local return_=0; }
-#   echo "$return_"
-# }
+function program_is_installed {
+  local return_=1
 
-# if [ $(program_is_installed zip) == 0 ]; then
-#   apk update
-#   apk add zip
-# fi
+  type $1 >/dev/null 2>&1 || { local return_=0; }
+  echo "$return_"
+}
+
+if [ $(program_is_installed zip) == 0 ]; then
+  apk update
+  apk add zip
+fi
 
 aws s3 sync s3://talktech-env-files/backend/production . # update with your s3 bucket
 unzip env-file.zip
