@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from 'express';
 import { Server } from 'socket.io';
 import { authUserPayload } from '@root/mocks/auth.mock';
@@ -9,10 +8,11 @@ import { postQueue } from '@service/queues/post.queue';
 import { Update } from '@post/controllers/update-post';
 import * as cloudinaryUploads from '@global/helpers/cloudinary-upload';
 
-jest.useFakeTimers();
 jest.mock('@service/queues/base.queue');
 jest.mock('@service/redis/post.cache');
 jest.mock('@global/helpers/cloudinary-upload');
+
+jest.useFakeTimers(); // moved to the top
 
 Object.defineProperties(postServer, {
   socketIOPostObject: {
@@ -24,11 +24,11 @@ Object.defineProperties(postServer, {
 describe('Update', () => {
   beforeEach(() => {
     jest.restoreAllMocks();
+    jest.clearAllTimers();
   });
 
   afterEach(() => {
     jest.clearAllMocks();
-    jest.clearAllTimers();
   });
 
   describe('posts', () => {
@@ -84,6 +84,7 @@ describe('Update', () => {
       const req: Request = postMockRequest(updatedPostWithImage, authUserPayload, { postId: `${postMockData._id}` }) as Request;
       const res: Response = postMockResponse();
       const postSpy = jest.spyOn(PostCache.prototype, 'updatePostInCache');
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       jest.spyOn(cloudinaryUploads, 'uploads').mockImplementation((): any => Promise.resolve({ version: '1234', public_id: '123456' }));
       jest.spyOn(postServer.socketIOPostObject, 'emit');
       jest.spyOn(postQueue, 'addPostJob');
