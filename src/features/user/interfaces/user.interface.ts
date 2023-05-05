@@ -3,8 +3,8 @@ import { ObjectId } from 'mongodb';
 
 export interface IUserDocument extends Document {
   [x: string]: unknown;
-  _id: string | ObjectId;
-  authId: string | ObjectId;
+  _id: number | ObjectId;
+  authId: number | ObjectId;
   username?: string;
   email?: string;
   password?: string;

@@ -14,7 +14,7 @@ export interface IFollowerDocument extends Document {
 }
 
 export interface IFollower {
-  _id: mongoose.Types.ObjectId | string;
+  _id: mongoose.Types.ObjectId | number;
   followeeId?: IFollowerData;
   followerId?: IFollowerData;
   createdAt?: Date;

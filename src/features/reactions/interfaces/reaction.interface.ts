@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import { Document } from 'mongoose';
 
 export interface IReactionDocument extends Document {
-  _id?: string | ObjectId;
+  _id?: number | ObjectId;
   username: string;
   avataColor: string;
   type: string;
@@ -33,8 +33,8 @@ export interface IReactionJob {
 }
 
 export interface IQueryReaction {
-  _id?: string | ObjectId;
-  postId?: string | ObjectId;
+  _id?: number | ObjectId;
+  postId?: number | ObjectId;
 }
 
 export interface IReaction {
