@@ -41,7 +41,6 @@ export class Add {
     res.status(HTTP_STATUS.OK).json({ message: 'Following user now' });
   }
 
-
   private userData(user: IUserDocument): IFollowerData {
     if (!user) {
       throw new Error('User is undefined or null');
@@ -59,5 +58,4 @@ export class Add {
       userProfile: user
     };
   }
-
 }
