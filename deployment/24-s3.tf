@@ -5,20 +5,16 @@ resource "aws_s3_bucket" "code_deploy_backend_bucket" {
   tags = local.common_tags
 }
 
-# took out acl and added this instead
-resource "aws_s3_bucket_policy" "code_deploy_bucket_policy" {
-  bucket = aws_s3_bucket.code_deploy_backend_bucket.id
+# ACL NO LONGER SUPPORTED - APRIL 2023:
+# resource "aws_s3_bucket_acl" "code_deploy_bucket_acl" {
+#   bucket = aws_s3_bucket.code_deploy_backend_bucket.id
+#   acl    = "private"
+# }
+resource "aws_s3_bucket_versioning" "code_deploy_bucket_versioning" {
+  depends_on = [aws_s3_bucket.code_deploy_backend_bucket]
 
-  policy = jsonencode({
-    "Version": "2012-10-17",
-    "Statement": [{
-      "Sid": "AllowS3GetObject",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "${aws_s3_bucket.code_deploy_backend_bucket.arn}/*"
-    }]
-  })
+  bucket = aws_s3_bucket.code_deploy_backend_bucket.id
+  enabled = true
 }
 
 
