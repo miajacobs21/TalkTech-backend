@@ -109,7 +109,7 @@ export class Add {
 
   private async messageNotification({ currentUser, message, receiverName, receiverId }: IMessageNotification): Promise<void> {
     const cachedUser: IUserDocument = (await userCache.getUserFromCache(`${receiverId}`)) as IUserDocument;
-    if (cachedUser.notifications.messages) {
+    if (cachedUser.notifications && cachedUser.notifications.messages) {
       const templateParams: INotificationTemplate = {
         username: receiverName,
         message,
