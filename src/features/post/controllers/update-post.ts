@@ -27,8 +27,8 @@ export class Update {
       profilePicture,
       imgId,
       imgVersion,
-      videoId: '',
-      videoVersion: ''
+      // videoId: '',
+      // videoVersion: ''
     } as IPostDocument;
 
     const postUpdated: IPostDocument = await postCache.updatePostInCache(postId, updatedPost);
