@@ -51,7 +51,7 @@ export class Add {
       followingCount: user.followingCount,
       profilePicture: user.profilePicture,
       uId: user.uId!,
-      userProfile: user,
+      userProfile: user
     };
   }
 }
