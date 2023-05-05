@@ -5,10 +5,22 @@ resource "aws_s3_bucket" "code_deploy_backend_bucket" {
   tags = local.common_tags
 }
 
-resource "aws_s3_bucket_acl" "code_deploy_bucket_acl" {
+# took out acl and added this instead
+resource "aws_s3_bucket_policy" "code_deploy_bucket_policy" {
   bucket = aws_s3_bucket.code_deploy_backend_bucket.id
-  acl    = "private"
+
+  policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [{
+      "Sid": "AllowS3GetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "${aws_s3_bucket.code_deploy_backend_bucket.arn}/*"
+    }]
+  })
 }
+
 
 resource "aws_s3_bucket_public_access_block" "public_block" {
   bucket = aws_s3_bucket.code_deploy_backend_bucket.id
