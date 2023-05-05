@@ -2,8 +2,7 @@ import mongoose, { Document } from 'mongoose';
 import { ObjectId } from 'mongodb';
 
 export interface IUserDocument extends Document {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [x: string]: any;
+  [x: string]: unknown;
   _id: string | ObjectId;
   authId: string | ObjectId;
   username?: string;

@@ -17,7 +17,7 @@ export class Add {
     const { followerId } = req.params;
     // update count in cache
     const followersCount: Promise<void> = followerCache.updateFollowersCountInCache(`${followerId}`, 'followersCount', 1);
-    const followeeCount: Promise<void> = followerCache.updateFollowersCountInCache(`${req.currentUser?.userId}`, 'followingCount', 1);
+    const followeeCount: Promise<void> = followerCache.updateFollowersCountInCache(`${req.currentUser!.userId}`, 'followingCount', 1);
     await Promise.all([followersCount, followeeCount]);
 
     const cachedFollower: Promise<IUserDocument> = userCache.getUserFromCache(followerId) as Promise<IUserDocument>;
@@ -42,10 +42,6 @@ export class Add {
   }
 
   private userData(user: IUserDocument): IFollowerData {
-    if (!user) {
-      throw new Error('User is undefined or null');
-    }
-
     return {
       _id: new mongoose.Types.ObjectId(user._id),
       username: user.username!,
@@ -55,7 +51,7 @@ export class Add {
       followingCount: user.followingCount,
       profilePicture: user.profilePicture,
       uId: user.uId!,
-      userProfile: user
+      userProfile: user,
     };
   }
 }
