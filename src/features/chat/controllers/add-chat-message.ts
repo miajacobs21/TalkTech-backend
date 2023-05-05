@@ -38,6 +38,7 @@ export class Add {
     const messageObjectId: ObjectId = new ObjectId();
     const conversationObjectId: ObjectId = !conversationId ? new ObjectId() : new mongoose.Types.ObjectId(conversationId);
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const sender: IUserDocument = (await userCache.getUserFromCache(`${req.currentUser!.userId}`)) as IUserDocument;
 
     if (selectedImage.length) {
@@ -109,7 +110,7 @@ export class Add {
 
   private async messageNotification({ currentUser, message, receiverName, receiverId }: IMessageNotification): Promise<void> {
     const cachedUser: IUserDocument = (await userCache.getUserFromCache(`${receiverId}`)) as IUserDocument;
-    if (cachedUser.notifications && cachedUser.notifications.messages) {
+    if (cachedUser?.notifications?.messages) {
       const templateParams: INotificationTemplate = {
         username: receiverName,
         message,
@@ -122,5 +123,6 @@ export class Add {
         subject: `You've received messages from ${currentUser.username}`
       });
     }
+
   }
 }
