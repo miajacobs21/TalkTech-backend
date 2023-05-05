@@ -42,6 +42,7 @@ export class Add {
   }
 
   private userData(user: IUserDocument): IFollowerData {
+    console.log(user);
     return {
       _id: new mongoose.Types.ObjectId(user._id),
       username: user.username!,
