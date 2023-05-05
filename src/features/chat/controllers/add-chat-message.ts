@@ -123,6 +123,5 @@ export class Add {
         subject: `You've received messages from ${currentUser.username}`
       });
     }
-
   }
 }
