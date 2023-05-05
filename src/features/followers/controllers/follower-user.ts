@@ -42,9 +42,6 @@ export class Add {
   }
 
   private userData(user: IUserDocument): IFollowerData {
-    if (!user || !user._id) {
-      throw new Error('Invalid user object');
-    }
     return {
       _id: new mongoose.Types.ObjectId(user._id),
       username: user.username!,
