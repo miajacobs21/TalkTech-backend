@@ -1,6 +1,4 @@
 
-=======
-
 #!/bin/bash
 
 function program_is_installed {
@@ -27,5 +25,4 @@ zip env-file.zip .env.develop
 aws --region us-east-1 s3 cp env-file.zip s3://talktech-env-files/backend/develop/ #  my s3 bucket
 rm -rf .env*
 rm -rf env-file.zip
-
 

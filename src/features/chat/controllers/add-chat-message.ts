@@ -38,6 +38,7 @@ export class Add {
     const messageObjectId: ObjectId = new ObjectId();
     const conversationObjectId: ObjectId = !conversationId ? new ObjectId() : new mongoose.Types.ObjectId(conversationId);
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const sender: IUserDocument = (await userCache.getUserFromCache(`${req.currentUser!.userId}`)) as IUserDocument;
 
     if (selectedImage.length) {
@@ -58,7 +59,7 @@ export class Add {
       senderUsername: `${req.currentUser!.username}`,
       senderId: `${req.currentUser!.userId}`,
       senderAvatarColor: `${req.currentUser!.avatarColor}`,
-      senderProfilePicture: `${sender.profilePicture}`,
+      // senderProfilePicture: `${sender.profilePicture}`,
       body,
       isRead,
       gifUrl,
@@ -66,7 +67,9 @@ export class Add {
       reaction: [],
       createdAt: new Date(),
       deleteForEveryone: false,
-      deleteForMe: false
+      deleteForMe: false,
+      // added this - commented out origional above
+      senderProfilePicture: ''
     };
     Add.prototype.emitSocketIOEvent(messageData);
 
@@ -107,7 +110,7 @@ export class Add {
 
   private async messageNotification({ currentUser, message, receiverName, receiverId }: IMessageNotification): Promise<void> {
     const cachedUser: IUserDocument = (await userCache.getUserFromCache(`${receiverId}`)) as IUserDocument;
-    if (cachedUser.notifications.messages) {
+    if (cachedUser?.notifications?.messages) {
       const templateParams: INotificationTemplate = {
         username: receiverName,
         message,

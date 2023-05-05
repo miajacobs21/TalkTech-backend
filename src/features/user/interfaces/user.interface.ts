@@ -2,8 +2,9 @@ import mongoose, { Document } from 'mongoose';
 import { ObjectId } from 'mongodb';
 
 export interface IUserDocument extends Document {
-  _id: string | ObjectId;
-  authId: string | ObjectId;
+  [x: string]: unknown;
+  _id: number | ObjectId;
+  authId: number | ObjectId;
   username?: string;
   email?: string;
   password?: string;
@@ -25,8 +26,6 @@ export interface IUserDocument extends Document {
   profilePicture: string;
   createdAt?: Date;
 }
-
-// export interface IUser { } -  44 at 440, may not need it //
 
 export interface IResetPasswordParams {
   username: string;

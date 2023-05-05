@@ -47,7 +47,7 @@ export const reactionData: IReactionDocument = {
   createdAt: new Date(),
   userTo: '60263f14648fed5246e322d9',
   type: 'love'
-} as IReactionDocument;
+} as unknown as IReactionDocument;
 
 export const commentsData: ICommentDocument = {
   _id: '6064861bc25eaa5a5d2f9bf4',

@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import { Document } from 'mongoose';
 
 export interface ICommentDocument extends Document {
-  _id?: string | ObjectId;
+  _id?: number | ObjectId;
   username: string;
   avatarColor: string;
   postId: string;
@@ -26,8 +26,8 @@ export interface ICommentNameList {
 }
 
 export interface IQueryComment {
-  _id?: string | ObjectId;
-  postId?: string | ObjectId;
+  _id?: number | ObjectId;
+  postId?: number | ObjectId;
 }
 
 export interface IQuerySort {
