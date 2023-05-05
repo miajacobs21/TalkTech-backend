@@ -58,7 +58,7 @@ export class Add {
       senderUsername: `${req.currentUser!.username}`,
       senderId: `${req.currentUser!.userId}`,
       senderAvatarColor: `${req.currentUser!.avatarColor}`,
-      senderProfilePicture: `${sender.profilePicture}`,
+      // senderProfilePicture: `${sender.profilePicture}`,
       body,
       isRead,
       gifUrl,
@@ -66,7 +66,9 @@ export class Add {
       reaction: [],
       createdAt: new Date(),
       deleteForEveryone: false,
-      deleteForMe: false
+      deleteForMe: false,
+      // added this - commented out origional above
+      senderProfilePicture: ''
     };
     Add.prototype.emitSocketIOEvent(messageData);
 
