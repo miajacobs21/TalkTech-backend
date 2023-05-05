@@ -21,9 +21,9 @@ resource "aws_s3_bucket_public_access_block" "public_block" {
   ignore_public_acls      = true
 }
 
-resource "aws_s3_bucket_versioning" "code_deploy_bucket_versioning" {
-  bucket = aws_s3_bucket.code_deploy_backend_bucket.id
-  versioning_configuration {
-    status = "Enabled"
-  }
-}
+# resource "aws_s3_bucket_versioning" "code_deploy_bucket_versioning" {
+#   bucket = aws_s3_bucket.code_deploy_backend_bucket.id
+#   versioning_configuration {
+#     status = "Enabled"
+#   }
+# }
