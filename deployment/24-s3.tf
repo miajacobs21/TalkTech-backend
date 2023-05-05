@@ -5,12 +5,10 @@ resource "aws_s3_bucket" "code_deploy_backend_bucket" {
   tags = local.common_tags
 }
 
-# ACL NO LONGER SUPPORTED - APRIL 2023:
 # resource "aws_s3_bucket_acl" "code_deploy_bucket_acl" {
 #   bucket = aws_s3_bucket.code_deploy_backend_bucket.id
 #   acl    = "private"
 # }
-
 
 resource "aws_s3_bucket_public_access_block" "public_block" {
   bucket = aws_s3_bucket.code_deploy_backend_bucket.id
@@ -21,9 +19,9 @@ resource "aws_s3_bucket_public_access_block" "public_block" {
   ignore_public_acls      = true
 }
 
-# resource "aws_s3_bucket_versioning" "code_deploy_bucket_versioning" {
-#   bucket = aws_s3_bucket.code_deploy_backend_bucket.id
-#   versioning_configuration {
-#     status = "Enabled"
-#   }
-# }
+resource "aws_s3_bucket_versioning" "code_deploy_bucket_versioning" {
+  bucket = aws_s3_bucket.code_deploy_backend_bucket.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
