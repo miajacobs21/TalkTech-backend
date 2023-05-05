@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "code_deploy_backend_bucket" {
   tags = local.common_tags
 }
 
-resource "aws_s3_bucket_acl" "code_deploy_bucket_acl" {
+resource "aws_s3_bucket" "code_deploy_bucket" {
   bucket = aws_s3_bucket.code_deploy_backend_bucket.id
   acl    = "private"
 }
