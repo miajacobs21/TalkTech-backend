@@ -26,7 +26,7 @@ export class Update {
       gifUrl,
       profilePicture,
       imgId,
-      imgVersion,
+      imgVersion
       // videoId: '',
       // videoVersion: ''
     } as IPostDocument;
