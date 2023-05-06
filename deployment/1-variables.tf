@@ -73,7 +73,7 @@ variable "ec2_iam_role_policy_name" {
 variable "ec2_instance_profile_name" {
   description = "EC2 Instance Profile Name"
   type        = string
-  default     = "talktech-server-ec2-instance-profile" # Add a unique name
+  default     = "talktech-server-ec2-instance-profile2" # Add a unique name
 }
 
 variable "elasticache_node_type" {
