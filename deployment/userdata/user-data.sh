@@ -37,10 +37,10 @@ fi
 
 cd /home/ec2-user
 
-git clone -b main https://github.com/miajacobs21/TalkTech-backend.git # replace this github url with your url of your own project
-cd TalkTech-backend # set your project name
+git clone -b main https://github.com/miajacobs21/TalkTech-backend.git # github url
+cd TalkTech-backend # project name
 npm install
-aws s3 sync s3://talktech-env-files/backend/production . # update with your s3 bucket
+aws s3 sync s3://talktech-env-files/backend/production . #  s3 bucket
 unzip env-file.zip
 cp .env.production .env
 npm run build

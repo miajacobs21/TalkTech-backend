@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import { Document } from 'mongoose';
 
 export interface ICommentDocument extends Document {
-  _id?: number | ObjectId;
+  _id?: number | string | ObjectId;
   username: string;
   avatarColor: string;
   postId: string;
