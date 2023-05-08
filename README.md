@@ -1,7 +1,8 @@
 # TalkTech-backend
-## for SWDV691 Capstone Course
+## for SWDV691 Capstone Project
+## Mia Jacobs
+This is the backend repo for my Maryville University SWDV691 Capstone project.
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/miajacobs21/TalkTech-backend/tree/develop.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/miajacobs21/TalkTech-backend/tree/develop)
 
 
 
