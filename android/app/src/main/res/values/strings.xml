@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">talktech-backend</string>
+    <string name="title_activity_main">talktech-backend</string>
+    <string name="package_name">talktech.backend</string>
+    <string name="custom_url_scheme">talktech.backend</string>
+</resources>

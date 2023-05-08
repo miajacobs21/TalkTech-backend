@@ -19,17 +19,13 @@ Content-Type: application/json
 Accept: application/json
 withCredentials: true
 
-console.log(error)
-
-{ 
-  "username": "Danny",
-  "password": "qwerty",
-  "email": "myemail@test.com",
-  "avatarColor": "red",
+{
+  "username": "",
+  "password": "",
+  "email": "",
+  "avatarColor": "",
   "avatarImage": "<add-a-base64-encoded-string>"
 }
-
-console.log(error)
 
 ###
 POST {{baseUrl}}/{{urlPath}}/signin

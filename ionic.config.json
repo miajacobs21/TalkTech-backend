@@ -1,0 +1,7 @@
+{
+  "name": "talktech-backend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}
