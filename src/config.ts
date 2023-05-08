@@ -11,6 +11,7 @@ class Config {
   public SECRET_KEY_ONE: string | undefined;
   public SECRET_KEY_TWO: string | undefined;
   public CLIENT_URL: string | undefined;
+  public API_URL: string | undefined;
   public REDIS_HOST: string | undefined;
   public CLOUD_NAME: string | undefined;
   public CLOUD_API_KEY: string | undefined;
@@ -21,7 +22,7 @@ class Config {
   public SENDGRID_SENDER: string | undefined;
   public EC2_URL: string | undefined;
 
-  private readonly DEFAULT_DATABASE_URL = 'mongodb://127.0.0.1:27017/TalkTech-backend';
+  private readonly DEFAULT_DATABASE_URL = 'mongodb://127.0.0.1:27017/talktechapp-backend';
 
   constructor() {
     this.DATABASE_URL = process.env.DATABASE_URL || this.DEFAULT_DATABASE_URL;
@@ -30,6 +31,7 @@ class Config {
     this.SECRET_KEY_ONE = process.env.SECRET_KEY_ONE || '';
     this.SECRET_KEY_TWO = process.env.SECRET_KEY_TWO || '';
     this.CLIENT_URL = process.env.CLIENT_URL || '';
+    this.API_URL = process.env.API_URL || '';
     this.REDIS_HOST = process.env.REDIS_HOST || '';
     this.CLOUD_NAME = process.env.CLOUD_NAME || '';
     this.CLOUD_API_KEY = process.env.CLOUD_API_KEY || '';

@@ -1,5 +1,5 @@
 resource "aws_launch_configuration" "asg_launch_configuration" {
-  name                        = "${local.prefix}-launch-config"
+  name                        = "${local.prefix}-launch-config2"
   image_id                    = data.aws_ami.ec2_ami.id
   instance_type               = var.ec2_instance_type
   key_name                    = "talktechappKeyPair" # Add your keyPair name here
